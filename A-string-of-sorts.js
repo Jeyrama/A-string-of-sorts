@@ -17,10 +17,26 @@ string should be sorted to the end of the result in original order.
 
 // Solution
 
-const sortBy = require('lodash/sortBy');
-
-function sortString(string, ordering) {
-  return sortBy(string, c => ordering.indexOf(c) + 1 || Infinity).join('');
-}
+const sortString = (source, order) => {
+  return order
+    .split('')
+    .filter((x, i, a) => a.indexOf(x) == i)
+    .map(c => source.split('').filter(i => i === c))
+    .reduce((acc, a) => acc.concat(a), [])
+    .concat(source.split('').filter(c => !order.includes(c)))
+    .join("");
+};
 
 // or
+
+function sortString(str,order) {
+  let res = [];
+  for (let i in order){
+      while(str.includes(order[i])){
+          res.push(order[i]);
+          str = str.replace(order[i],'');
+      }
+  }
+  
+  return (res.join('') + str);
+  }
