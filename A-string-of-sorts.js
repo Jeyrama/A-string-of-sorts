@@ -16,3 +16,9 @@ string should be sorted to the end of the result in original order.
 
 
 // Solution
+
+const sortBy = require('lodash/sortBy');
+
+function sortString(string, ordering) {
+  return sortBy(string, c => ordering.indexOf(c) + 1 || Infinity).join('');
+}
