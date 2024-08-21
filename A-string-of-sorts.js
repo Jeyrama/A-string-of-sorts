@@ -22,3 +22,5 @@ const sortBy = require('lodash/sortBy');
 function sortString(string, ordering) {
   return sortBy(string, c => ordering.indexOf(c) + 1 || Infinity).join('');
 }
+
+// or
