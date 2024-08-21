@@ -13,3 +13,6 @@ so you should remove repeating characters, leaving only the first occurrence.
 Any character in the first string that does not appear in the second 
 string should be sorted to the end of the result in original order.
 */
+
+
+// Solution
